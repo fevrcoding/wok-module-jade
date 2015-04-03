@@ -24,7 +24,16 @@ module.exports = function (grunt) {
                 return data;
             }
         },
-        html: {
+        dev: {
+            files: [{
+                expand: true,
+                cwd: '<%= paths.views %>/',
+                src: ['{,*/}*.jade', '!{,*/}_*.jade'], //render all views except those starting with `_` ala SASS
+                dest: '<%= paths.html %>',
+                ext: '.html'
+            }]
+        },
+        dist: {
             files: [{
                 expand: true,
                 cwd: '<%= paths.views %>/',
