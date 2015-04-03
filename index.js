@@ -25,7 +25,8 @@ module.exports = function (remote, files, wok) {
                     };
                 }
             }).forEach(function (fileItem) {
-                remote.copy(fileItem.pathFrom, fileItem.pathTo);
+                console.log(fileItem);
+                //remote.copy(fileItem.pathFrom, fileItem.pathTo);
             });
             done();
         }
