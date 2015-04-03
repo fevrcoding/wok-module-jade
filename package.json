@@ -1,6 +1,6 @@
 {
   "name": "wok-module-jade",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Jade views for Wok",
   "main": "index.js",
   "scripts": {
