@@ -18,14 +18,14 @@ module.exports = function (remote, files, wok) {
         install: function () {
 
             files.filter(function (filepath) {
-                return filepath.indexOf('template/') === 0;
-            }).forEach(function (el) {
-                wok.files.push({
-                    pathFrom: el,
-                    remote: remote,
-                    pathTo: el.replace(/^template\//, ''),
-                    content: null
-                });
+                if (filepath.indexOf('template/') === 0) {
+                    return {
+                        pathFrom: filepath,
+                        pathTo: filepath.replace('/^template\//', '')
+                    };
+                }
+            }).forEach(function (fileItem) {
+                remote.copy(fileItem.pathFrom, fileItem.pathTo);
             });
         }
     };
