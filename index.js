@@ -18,17 +18,9 @@ module.exports = function (remote, files, wok) {
         install: function (done) {
 
             files.filter(function (filepath) {
-                console.log(filepath, filepath.indexOf('template/'));
-                if (filepath.indexOf('template/') === 0) {
-                    return {
-                        pathFrom: filepath,
-                        pathTo: filepath.replace('/^template\//', '')
-                    };
-                }
-                return null;
-            }).forEach(function (fileItem) {
-                console.log(fileItem);
-                remote.copy(fileItem.pathFrom, fileItem.pathTo);
+                return filepath.indexOf('template/') === 0;
+            }).forEach(function (filepath) {
+                remote.copy(filepath, filepath.replace('/^template\//', ''));
             });
             done();
         }
