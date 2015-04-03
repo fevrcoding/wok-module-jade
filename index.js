@@ -18,6 +18,7 @@ module.exports = function (remote, files, wok) {
         install: function (done) {
 
             files.filter(function (filepath) {
+                console.log(filepath, filepath.indexOf('template/'));
                 if (filepath.indexOf('template/') === 0) {
                     return {
                         pathFrom: filepath,
