@@ -20,6 +20,7 @@ module.exports = function (remote, files, wok) {
             files.filter(function (filepath) {
                 return filepath.indexOf('template/') === 0;
             }).forEach(function (filepath) {
+                console.log(filepath, filepath.replace('/^template\//', ''));
                 remote.copy(filepath, filepath.replace('/^template\//', ''));
             });
             done();
