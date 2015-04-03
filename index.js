@@ -24,9 +24,10 @@ module.exports = function (remote, files, wok) {
                         pathTo: filepath.replace('/^template\//', '')
                     };
                 }
+                return null;
             }).forEach(function (fileItem) {
                 console.log(fileItem);
-                //remote.copy(fileItem.pathFrom, fileItem.pathTo);
+                remote.copy(fileItem.pathFrom, fileItem.pathTo);
             });
             done();
         }
