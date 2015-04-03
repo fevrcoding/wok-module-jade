@@ -15,7 +15,7 @@ module.exports = function (remote, files, wok) {
     return {
 
         //this is run when the plugin is installed while generating the project
-        install: function () {
+        install: function (done) {
 
             files.filter(function (filepath) {
                 if (filepath.indexOf('template/') === 0) {
@@ -27,6 +27,7 @@ module.exports = function (remote, files, wok) {
             }).forEach(function (fileItem) {
                 remote.copy(fileItem.pathFrom, fileItem.pathTo);
             });
+            done();
         }
     };
 
