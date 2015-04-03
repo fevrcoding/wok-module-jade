@@ -22,6 +22,7 @@ module.exports = function (remote, files, wok) {
             }).forEach(function (filepath) {
                 remote.copy(filepath, filepath.replace(/^template\//, ''));
             });
+            this.npmInstall(['grunt-contrib-jade'], { 'saveDev': true });
             done();
         }
     };
